@@ -22,7 +22,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yA-LY-CJC">
                         <rect key="frame" x="40" y="0.0" width="280" height="29.5"/>
                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="23"/>
-                        <color key="textColor" red="0.63921568627450975" green="0.87058823529411766" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -33,7 +33,7 @@
                     <constraint firstAttribute="bottom" secondItem="8yA-LY-CJC" secondAttribute="bottom" id="zyN-QU-8aM"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.98039215686274506" green="0.27450980392156865" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="ingredientCellLabel" destination="8yA-LY-CJC" id="kJd-KV-IZY"/>

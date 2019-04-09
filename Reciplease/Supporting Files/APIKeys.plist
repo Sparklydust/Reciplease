@@ -4,5 +4,7 @@
 <dict>
 	<key>myYummlyAPIKey</key>
 	<string>2c6635a18d25252c7717e5ab1a37a9aa</string>
+	<key>myYummlyAPIId</key>
+	<string>5de7f51e</string>
 </dict>
 </plist>

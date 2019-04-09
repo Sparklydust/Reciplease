@@ -10,7 +10,17 @@ import UIKit
 
 class SearchRecipeVC: UIViewController {
 
-    override func viewDidLoad() {
+  @IBOutlet weak var imageRecipie: UIImageView!
+  @IBOutlet weak var likeLabel: UILabel!
+  @IBOutlet weak var likeImage: UIImageView!
+  @IBOutlet weak var timerLabel: UILabel!
+  @IBOutlet weak var timerImage: UIImageView!
+  @IBOutlet weak var recipieName: UILabel!
+  @IBOutlet weak var recipieIngredients: UIScrollView!
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
     }
+  @IBAction func stepByStep(_ sender: Any) {
+  }
 }

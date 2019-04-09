@@ -8,15 +8,22 @@
 
 import UIKit
 
+protocol ButtonClickedDelegate {
+  func cellIsClicked(index: Int)
+}
+
 class CustomRecipeCell: UITableViewCell {
   
   @IBOutlet weak var cellImage: UIImageView!
   @IBOutlet weak var likeLabel: UILabel!
   @IBOutlet weak var likeImage: UIImageView!
-  @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var timeImage: UIImageView!
+  @IBOutlet weak var timerLabel: UILabel!
+  @IBOutlet weak var timerImage: UIImageView!
   @IBOutlet weak var recipeName: UILabel!
   @IBOutlet weak var recipeInfo: UILabel!
+  
+  var cellDelegate: ButtonClickedDelegate?
+  var index: IndexPath?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -24,5 +31,9 @@ class CustomRecipeCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+  }
+  
+  @IBAction func cellButton(_ sender: Any) {
+    cellDelegate?.cellIsClicked(index: index!.row)
   }
 }
