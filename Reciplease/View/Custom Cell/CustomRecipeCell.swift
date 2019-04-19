@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ButtonClickedDelegate {
+protocol CustomRecipeCellDelegate: AnyObject {
   func cellIsClicked(index: Int)
 }
 
@@ -21,8 +21,11 @@ class CustomRecipeCell: UITableViewCell {
   @IBOutlet weak var timerImage: UIImageView!
   @IBOutlet weak var recipeName: UILabel!
   @IBOutlet weak var recipeInfo: UILabel!
+  @IBOutlet weak var cellButton: UIButton!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var likeAndTimerView: UIView!
   
-  var cellDelegate: ButtonClickedDelegate?
+  weak var cellDelegate: CustomRecipeCellDelegate?
   var index: IndexPath?
   
   override func awakeFromNib() {
@@ -35,5 +38,13 @@ class CustomRecipeCell: UITableViewCell {
   
   @IBAction func cellButton(_ sender: Any) {
     cellDelegate?.cellIsClicked(index: index!.row)
+  }
+  
+  func triggerActivityIndicator(_ action: Bool) {
+    activityIndicator.isHidden = !action
+    recipeInfo.isHidden = action
+    recipeName.isHidden = action
+    cellButton.isEnabled = !action
+    likeAndTimerView.isHidden = action
   }
 }

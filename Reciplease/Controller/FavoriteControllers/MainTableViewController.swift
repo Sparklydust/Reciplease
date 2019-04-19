@@ -13,10 +13,10 @@ class MainTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setup()
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    setup()
     tableView.reloadData(
       with: .simple(duration: 0.75, direction: .rotation3D(
         type: .doctorStrange), constantDelay: 0))
@@ -44,7 +44,7 @@ class MainTableViewController: UITableViewController {
   }
 }
 
-// MARK: - TableView
+// MARK: - TableView Folding Cell configuration
 extension MainTableViewController {
   override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
     return 10
@@ -62,8 +62,6 @@ extension MainTableViewController {
     } else {
       cell.unfold(true, animated: false, completion: nil)
     }
-    
-    //cell.number = indexPath.row
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,9 +77,7 @@ extension MainTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
     let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
-    
     if cell.isAnimating() {
       return
     }
