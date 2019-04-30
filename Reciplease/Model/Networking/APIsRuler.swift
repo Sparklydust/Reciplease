@@ -12,12 +12,20 @@ import Alamofire
 class APIsRuler {
   static var shared = APIsRuler()
   private init() {}
-  
+
   static let myAPIid = valueForAPIKey(names: "myYummlyAPIId")
   static let myAPIKey = valueForAPIKey(names: "myYummlyAPIKey")
-  
+
   static let urlAPIParameter =
   "_app_id=\(APIsRuler.myAPIid)&_app_key=\(APIsRuler.myAPIKey)"
+  
+  // Used for the UITests
+  private var task: URLSessionDataTask?
+  private var session = URLSession(configuration: .default)
+  
+  init(session: URLSession) {
+    self.session = session
+  }
 }
 
 //MARK: - API call to find recipes with user ingredients
@@ -27,7 +35,7 @@ extension APIsRuler {
     let searchURL = URL(
       string: "https://api.yummly.com/v1/api/recipes?"
         + APIsRuler.urlAPIParameter + urlSearchParameter)!
-    
+
     Alamofire.request(searchURL, method: .get).responseJSON {
       (response) in
       DispatchQueue.main.async {
@@ -57,7 +65,7 @@ extension APIsRuler {
     let searchURL = URL(
       string: "https://api.yummly.com/v1/api/recipe/\(recipieID)?"
         + APIsRuler.urlAPIParameter)!
-    
+
     Alamofire.request(searchURL, method: .get).responseJSON {
       (response) in
       DispatchQueue.main.async {
@@ -81,7 +89,7 @@ extension APIsRuler {
   }
 }
 
-//MARK: - To retrieve an image from a JSON URL parsing 
+//MARK: - To retrieve an image from a JSON URL parsing
 extension UIImageView {
   func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
     contentMode = mode
@@ -98,8 +106,8 @@ extension UIImageView {
       }.resume()
   }
   
-  //  func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
-  //    guard let url = URL(string: link) else { return }
-  //    downloaded(from: url, contentMode: mode)
-  //  }
+  func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+    guard let url = URL(string: link) else { return }
+    downloaded(from: url, contentMode: mode)
+  }
 }

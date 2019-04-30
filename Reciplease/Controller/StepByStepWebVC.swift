@@ -9,10 +9,10 @@
 import UIKit
 import WebKit
 
-class StepByStepWebVC: UIViewController {
+class StepByStepWebVC: UIViewController, ShowsAlert {
 
   var webView: WKWebView!
-  var oneRecipe: OneRecipeRoot?
+  var recipeMaster: RecipeMaster?
 
   override func loadView() {
     webViewConfiguration()
@@ -20,11 +20,13 @@ class StepByStepWebVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    print(oneRecipe?.recipe?.sourceRecipeUrl ?? "")
-    
-    let myURL = URL(string: "https://eatinginstantly.com/instant-pot-taco-pasta/")
-    let myRequest = URLRequest(url: myURL!)
+    guard let myURL = recipeMaster?.webUrl else {
+      showsAlert(
+        title: "No URL",
+        message: "Sorry but this recipe doesn't have a valid URL, \nplease select another one")
+      return
+    }
+    let myRequest = URLRequest(url: myURL)
     webView.load(myRequest)
   }
 }

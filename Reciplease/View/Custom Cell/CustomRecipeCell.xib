@@ -22,7 +22,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="Oce-19-Zcn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="114.5"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-Tp-zxf">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageGradient" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-Tp-zxf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QLy-z7-KWA">
@@ -34,11 +34,13 @@
                                     <constraint firstAttribute="height" constant="25" id="RdF-l5-0lP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                <color key="textColor" red="0.1803921568627451" green="0.72156862745098038" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQH-Xi-iCB">
                                 <rect key="frame" x="0.0" y="30" width="288" height="25"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.72156862749999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -141,19 +143,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                         <color key="color" red="0.98039215690000003" green="0.27450980390000002" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </activityIndicatorView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAx-f5-vAY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
-                        <connections>
-                            <action selector="cellButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NzC-am-B34"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="QLy-z7-KWA" secondAttribute="bottom" constant="10" id="1Vd-XH-KRF"/>
                     <constraint firstItem="6VB-lq-zvu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="27V-mx-orI"/>
                     <constraint firstItem="5iQ-m4-6LH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2uz-vf-jkL"/>
                     <constraint firstAttribute="bottom" secondItem="9eg-Tp-zxf" secondAttribute="bottom" id="69z-oV-FDW"/>
-                    <constraint firstAttribute="bottom" secondItem="zAx-f5-vAY" secondAttribute="bottom" id="7im-Bb-9LN"/>
                     <constraint firstAttribute="trailing" secondItem="QLy-z7-KWA" secondAttribute="trailing" constant="16" id="7rB-y1-VDz"/>
                     <constraint firstAttribute="trailing" secondItem="6VB-lq-zvu" secondAttribute="trailing" id="8nw-x2-8sC"/>
                     <constraint firstAttribute="bottom" secondItem="6VB-lq-zvu" secondAttribute="bottom" id="AkE-ll-TmJ"/>
@@ -163,12 +158,9 @@
                     <constraint firstItem="9eg-Tp-zxf" firstAttribute="trailing" secondItem="Oce-19-Zcn" secondAttribute="trailing" id="StX-CU-YVY"/>
                     <constraint firstItem="9eg-Tp-zxf" firstAttribute="leading" secondItem="Oce-19-Zcn" secondAttribute="leading" id="TTV-QA-VSr"/>
                     <constraint firstItem="9eg-Tp-zxf" firstAttribute="top" secondItem="Oce-19-Zcn" secondAttribute="top" id="VaW-fR-fDy"/>
-                    <constraint firstAttribute="trailing" secondItem="zAx-f5-vAY" secondAttribute="trailing" id="Yb6-68-IiF"/>
                     <constraint firstItem="QLy-z7-KWA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hqi-jN-IvE"/>
-                    <constraint firstItem="zAx-f5-vAY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iER-lE-621"/>
                     <constraint firstAttribute="trailing" secondItem="Oce-19-Zcn" secondAttribute="trailing" id="lIZ-gm-uos"/>
                     <constraint firstItem="6VB-lq-zvu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tYF-BP-czw"/>
-                    <constraint firstItem="zAx-f5-vAY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wcM-9g-2bg"/>
                     <constraint firstItem="Oce-19-Zcn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xkc-Wk-LaX"/>
                 </constraints>
             </tableViewCellContentView>
@@ -176,11 +168,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="activityIndicator" destination="6VB-lq-zvu" id="hkj-9R-OW9"/>
-                <outlet property="cellButton" destination="zAx-f5-vAY" id="WPL-Rr-QaQ"/>
                 <outlet property="cellImage" destination="Oce-19-Zcn" id="E5P-5q-sll"/>
                 <outlet property="likeAndTimerView" destination="5iQ-m4-6LH" id="DAO-he-mve"/>
                 <outlet property="likeImage" destination="7Oa-Bw-HSK" id="i3Q-VG-d6J"/>
-                <outlet property="likeLabel" destination="omr-LW-dgN" id="xpi-3c-hm5"/>
+                <outlet property="likeLabel" destination="omr-LW-dgN" id="s5Z-91-VXy"/>
                 <outlet property="recipeInfo" destination="CQH-Xi-iCB" id="4FE-kK-dln"/>
                 <outlet property="recipeName" destination="O0o-W2-wSe" id="Fzw-KR-LQt"/>
                 <outlet property="timerImage" destination="kDV-Eo-D94" id="6fI-HA-pFF"/>
@@ -190,7 +181,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Rectangle" width="618" height="334"/>
+        <image name="ImageGradient" width="361" height="113"/>
         <image name="like" width="29" height="29"/>
         <image name="noImage" width="800" height="511"/>
         <image name="stopwatch" width="29" height="29"/>

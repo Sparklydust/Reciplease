@@ -10,38 +10,37 @@ import UIKit
 import TableViewReloadAnimation
 
 class AddIngredientsVC: UIViewController, ShowsAlert {
-  
+
   @IBOutlet weak var ingredientsTableView: UITableView!
   @IBOutlet weak var userInput: UITextField!
   @IBOutlet weak var searchRecipeButton: UIButton!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-  
+
   var ingredients = [String]()
-  var recipesList = [AllRecipesRoot]()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     userInput.delegate = self
     activityIndicator.isHidden = true
-    
+
     // Retrieve and set user saved ingredients
     if let loadedIngredients = SettingService.ingredients {
       ingredients = loadedIngredients as! [String]
     }
-    
+
     // Register the custom cell
     ingredientsTableView.register(
       UINib(nibName: "CustomSearchCell", bundle: nil),
       forCellReuseIdentifier: "customSearchCell")
   }
-  
+
   // To Perform a table view animation
   override func viewWillAppear(_ animated: Bool) {
     ingredientsTableView.reloadData(
       with: .simple(duration: 0.75, direction: .rotation3D(
         type: .captainMarvel), constantDelay: 0))
   }
-  
+
   //MARK: - Exporter Delegation to SearchTableVC
   @IBAction func searchForRecipies(_ sender: Any) {
     if ingredients.isEmpty {
@@ -56,13 +55,12 @@ class AddIngredientsVC: UIViewController, ShowsAlert {
         (success, allRecipes) in
         self.triggerActivityIndicator(false)
         if success, let allRecipes = allRecipes {
-          self.recipesList.append(allRecipes)
           self.performSegue(withIdentifier: "goToNextVC", sender: allRecipes)
         }
       }
     }
   }
-  
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let destinationVC = segue.destination as? SearchTableVC else { return }
     guard let allRecipes = sender as? AllRecipesRoot else { return }
@@ -75,7 +73,7 @@ extension AddIngredientsVC: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return ingredients.count
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: "customSearchCell", for: indexPath) as! CustomSearchCell
@@ -97,7 +95,7 @@ extension AddIngredientsVC {
       newIngredientAdded()
     }
   }
-  
+
   func newIngredientAdded() {
     ingredients.insert(userInput.text!.capitalized, at: 0)
     SettingService.ingredients = ingredients
@@ -125,7 +123,7 @@ extension AddIngredientsVC: UITextFieldDelegate {
   @IBAction func dismissKeyboard(_ sender: Any) {
     userInput.resignFirstResponder()
   }
-  
+
   // When done is clicked on keyboard
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     userInput.resignFirstResponder()
@@ -151,7 +149,7 @@ extension AddIngredientsVC {
         self.clearAllIngredients()
     }
   }
-  
+
   func clearAllIngredients() {
     ingredients = [String]()
     userInput.text! = ""

@@ -11,7 +11,9 @@ import UIKit
 protocol ShowsAlert {}
 
 extension ShowsAlert where Self: UIViewController {
-  func showsAlert(title: String, message: String, completion: @escaping (_ result: Bool) -> Void) {
+  func showsAlert(title: String,
+                  message: String,
+                  completion: @escaping (_ result: Bool) -> Void) {
     let deleteAlert = UIAlertController(
       title: title,
       message: message,

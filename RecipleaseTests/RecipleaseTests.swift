@@ -6,29 +6,28 @@
 //  Copyright © 2019 Roland Lariotte. All rights reserved.
 //
 
-import XCTest
 @testable import Reciplease
+import UIKit
+import XCTest
 
 class RecipleaseTests: XCTestCase {
   
+  var uiImageFromUrl: UIImageView!
+  let imageURL =
+  "https://lh3.googleusercontent.com/USKRmdJjXBC8VyjuuHbNevBzn_ymAypE2dn6dJM_7xIl9jWpfiDlrK0Bq04ChLc5WoeDM7JjdrvgFuJgAnN9mHc=s360"
+  
+  // Reset CalculatorLogic after each test
   override func setUp() {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    super.setUp()
+    uiImageFromUrl = UIImageView()
   }
   
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+  //MARK: - Testing UIImage Extension
+  func testUIImageExtensionToThatNetworkAnImageWithItsURL() {
+    uiImageFromUrl.downloaded(from: imageURL)
   }
   
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+  func testUIImageExtensionToThatNetworkAnImageWithItsStringURL() {
+    uiImageFromUrl.downloaded(from: String(imageURL))
   }
-  
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
-  }
-  
 }

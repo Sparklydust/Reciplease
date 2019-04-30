@@ -12,7 +12,7 @@ class SettingService {
   private struct Keys {
     static let ingredients = "ingredients"
   }
-  
+
   static var ingredients: [Any]? {
     get {
       return UserDefaults.standard.array(
