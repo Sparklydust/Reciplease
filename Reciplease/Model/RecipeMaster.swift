@@ -8,7 +8,7 @@
 
 import Foundation
 
-// A Recipe struct to use all over the app
+// A Recipe struct to be used all over the app
 struct RecipeMaster {
   var name: String?
   var image: URL?
@@ -23,7 +23,8 @@ struct RecipeMaster {
   
   init() { }
   
-  init(name: String, image: URL, ingredients: String, timer: String, rating: String, webUrl: URL) {
+  init(name: String, image: URL, ingredients: String,
+       timer: String, rating: String, webUrl: URL) {
     self.name = name
     self.image = image
     self.ingredients = ingredients
@@ -32,7 +33,8 @@ struct RecipeMaster {
     self.webUrl = webUrl
   }
   
-  init(name: String, image: URL, ingredients: String, timer: String, rating: String, webUrl: URL, calories: Double, fat: Double, fiber: Double, protein: Double) {
+  init(name: String, image: URL, ingredients: String, timer: String, rating: String,
+       webUrl: URL, calories: Double, fat: Double, fiber: Double, protein: Double) {
     self.name = name
     self.image = image
     self.ingredients = ingredients

@@ -20,6 +20,7 @@ class StepByStepWebVC: UIViewController, ShowsAlert {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "Reciplease"
     guard let myURL = recipeMaster?.webUrl else {
       showsAlert(
         title: "No URL",

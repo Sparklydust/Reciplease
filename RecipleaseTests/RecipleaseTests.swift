@@ -12,22 +12,18 @@ import XCTest
 
 class RecipleaseTests: XCTestCase {
   
-  var uiImageFromUrl: UIImageView!
-  let imageURL =
-  "https://lh3.googleusercontent.com/USKRmdJjXBC8VyjuuHbNevBzn_ymAypE2dn6dJM_7xIl9jWpfiDlrK0Bq04ChLc5WoeDM7JjdrvgFuJgAnN9mHc=s360"
+  var addIngredientsVC: AddIngredientsVC!
   
-  // Reset CalculatorLogic after each test
   override func setUp() {
     super.setUp()
-    uiImageFromUrl = UIImageView()
+    addIngredientsVC = AddIngredientsVC()
   }
   
-  //MARK: - Testing UIImage Extension
-  func testUIImageExtensionToThatNetworkAnImageWithItsURL() {
-    uiImageFromUrl.downloaded(from: imageURL)
+  override func tearDown() {
+    super.tearDown()
+    addIngredientsVC = nil
   }
   
-  func testUIImageExtensionToThatNetworkAnImageWithItsStringURL() {
-    uiImageFromUrl.downloaded(from: String(imageURL))
+  func test() {
   }
 }

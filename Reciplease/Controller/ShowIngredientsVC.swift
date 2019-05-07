@@ -18,18 +18,25 @@ class ShowIngredientsVC: UIViewController, ShowsAlert {
   @IBOutlet weak var recipeName: UILabel!
   @IBOutlet weak var recipeIngredients: UITextView!
   
-  var isFavorited = false
   var recipe: Recipe?
   let savedRecipes = Recipe.all
+  var isFavorited = false
+  
   var recipeMaster = RecipeMaster()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "Reciplease"
+    getRecipeInformations(from: recipeMaster)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    wasRecipeFavorited()
     updateRigthBarButton(isFavorited)
-    getRecipeInformations(from: (recipeMaster))
   }
 }
-  
+
 //MARK: - Exporter Delegation when the button is cliked
 extension ShowIngredientsVC {
   @IBAction func stepByStep(_ sender: Any) {
@@ -47,12 +54,11 @@ extension ShowIngredientsVC {
 
 //MARK: - Method to get recipe info before displaying them
 extension ShowIngredientsVC {
-  
   func getRecipeInformations(from recipeMaster: RecipeMaster) {
     recipeName.text = recipeMaster.name
     recipeIngredients.text = recipeMaster.ingredients
-    likeLabel.text = "\(String(describing: recipeMaster.rating))/5"
-    timerLabel.text = "\(Int(recipeMaster.timer ?? "0")! / 60)m"
+    likeLabel.text = "\(recipeMaster.rating ?? "0")/5"
+    timerLabel.text = "\(Int(recipeMaster.timer!)! / 60)m"
     setRecipeImage(in: recipeImage, from: recipeMaster)
   }
   
@@ -81,6 +87,7 @@ extension ShowIngredientsVC {
     let rightButton = UIBarButtonItem(customView: button)
     navigationItem.setRightBarButton(rightButton, animated: true)
   }
+  
   // Actions for when the star is clicked
   @objc func favoriteDidTap() {
     isFavorited = !isFavorited
@@ -92,6 +99,17 @@ extension ShowIngredientsVC {
     }
     updateRigthBarButton(isFavorited)
   }
+  
+  //Check if the recipe was once favorited and saved
+  func wasRecipeFavorited() {
+    isFavorited = false
+    for recipe in Recipe.all {
+      if recipe.name == recipeMaster.name {
+        isFavorited = true
+        break
+      }
+    }
+  }
 }
 
 //MARK: - Saving  or unsaving user's favorite recipe with Core Data
@@ -101,7 +119,6 @@ extension ShowIngredientsVC {
       recipe = Recipe(context: AppDelegate.viewContext)
     }
     saveUserRecipe(into: recipe!, from: recipeMaster)
-    print(recipe)
   }
   
   func unsavedFromFavorite() {
@@ -117,15 +134,13 @@ extension ShowIngredientsVC {
     recipe.name = recipeMaster.name ?? "No name"
     recipe.ingredients = recipeMaster.ingredients ?? "No Ingredients to show"
     recipe.recipeSource = recipeMaster.webUrl
-    recipe.cookingTime = String(recipeMaster.timer!)
-    recipe.rating = String(recipeMaster.rating!)
+    recipe.cookingTime = String(recipeMaster.timer ?? "0")
+    recipe.rating = String(recipeMaster.rating ?? "0")
     recipe.image = recipeMaster.image
-    
-    recipe.calories = recipeMaster.calories!
-    recipe.fat = recipeMaster.fat!
-    recipe.fiber = recipeMaster.fiber!
-    recipe.protein = recipeMaster.protein!
-
+    recipe.calories = recipeMaster.calories ?? 0
+    recipe.fat = recipeMaster.fat ?? 0
+    recipe.fiber = recipeMaster.fiber ?? 0
+    recipe.protein = recipeMaster.protein ?? 0
     saveChangesInCoreData(
       unless: "This recipe could not be saved!")
   }

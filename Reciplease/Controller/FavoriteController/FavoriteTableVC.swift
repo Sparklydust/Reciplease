@@ -29,9 +29,10 @@ class FavoriteTableVC: UITableViewController, ShowsAlert {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    setup()
+    setupCellsToBeClosed()
     recipes = Recipe.all
     reloadDataWithAnimation()
+    messageShownIfNoSavedRecipe()
   }
 }
 
@@ -80,18 +81,6 @@ extension FavoriteTableVC {
     return cell
   }
   
-    func setSavedRecipes(into cell: CustomFavoriteCell, at indexPath: IndexPath) {
-      cell.recipeName.text = recipes[indexPath.row].name
-      cell.recipeInfo.text = recipes[indexPath.row].ingredients
-      cell.likeLabel.text = recipes[indexPath.row].rating
-      cell.timerLabel.text = "\(Int(recipes[indexPath.row].cookingTime!)! / 60)m"
-      cell.caloriesLabel.text = "\(recipes[indexPath.row].calories)"
-      cell.fatLabel.text = "\(recipes[indexPath.row].fat)"
-      cell.proteinLabel.text = "\(recipes[indexPath.row].protein)"
-      cell.fiberLabel.text = "\(recipes[indexPath.row].fiber)"
-      cell.ingredientsLabel.text = recipes[indexPath.row].ingredients
-    }
-  
   override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return cellHeights[indexPath.row]
   }
@@ -133,6 +122,24 @@ extension FavoriteTableVC {
   }
 }
 
+//MARK: Retrieve saved recipes and setup the cells accordingly
+extension FavoriteTableVC {
+  func setSavedRecipes(into cell: CustomFavoriteCell, at indexPath: IndexPath) {
+    cell.recipeName.text = recipes[indexPath.row].name
+    cell.likeLabel.text = recipes[indexPath.row].rating! + "/5"
+    cell.timerLabel.text = "\(Int(recipes[indexPath.row].cookingTime!)! / 60)m"
+    cell.caloriesLabel.text = "\(recipes[indexPath.row].calories)"
+    cell.fatLabel.text = "\(recipes[indexPath.row].fat)"
+    cell.proteinLabel.text = "\(recipes[indexPath.row].protein)"
+    cell.fiberLabel.text = "\(recipes[indexPath.row].fiber)"
+    cell.ingredientsLabel.text = recipes[indexPath.row].ingredients
+    if let image = recipes[indexPath.row].image {
+      cell.closeCellImage.downloaded(from: image)
+      cell.openCellImage.downloaded(from: image)
+    }
+  }
+}
+
 //MARK: - Unsaving recipe from favorite when the star is clicked
 extension FavoriteTableVC {
   @IBAction func starFavoriteButton(_ sender: Any) {
@@ -154,19 +161,28 @@ extension FavoriteTableVC {
             message: "Recipe could not be deleted")
         }
         self.viewWillAppear(true)
-        self.setup()
+        self.setupCellsToBeClosed()
         self.reloadDataWithAnimation()
+    }
+  }
+}
+
+//MARK: - Show VC to user if no recipe were saved
+extension FavoriteTableVC {
+  func messageShownIfNoSavedRecipe() {
+    if recipes.count == 0 {
+      performSegue(withIdentifier: "messageForUser", sender: self)
     }
   }
 }
 
 //MARK: - Setting up cells when controllers open
 extension FavoriteTableVC {
-  private func setup() {
+  func setupCellsToBeClosed() {
     cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
     tableView.estimatedRowHeight = Const.closeCellHeight
     tableView.rowHeight = UITableView.automaticDimension
-    tableView.backgroundColor = UIColor(red: 254/255.0, green: 255/255.0, blue: 228/255.0, alpha: 1)
+    tableView.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
   }
   
   func reloadDataWithAnimation() {

@@ -33,8 +33,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="RdF-l5-0lP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                                <color key="textColor" red="0.1803921568627451" green="0.72156862745098038" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQH-Xi-iCB">
@@ -56,14 +56,14 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.5k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omr-LW-dgN">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="23"/>
-                                                <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="14"/>
                                                 <color key="textColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZK-Vl-2AM">
                                                 <rect key="frame" x="0.0" y="23" width="33" height="23"/>
-                                                <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="14"/>
                                                 <color key="textColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="GSs-fM-j0U" firstAttribute="leading" secondItem="HUq-Bs-pfw" secondAttribute="leading" id="HGg-yv-ni9"/>
                                                     <constraint firstAttribute="trailing" secondItem="GSs-fM-j0U" secondAttribute="trailing" id="JYJ-ab-4ly"/>
@@ -141,7 +141,7 @@
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6VB-lq-zvu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
-                        <color key="color" red="0.98039215690000003" green="0.27450980390000002" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
@@ -181,7 +181,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ImageGradient" width="361" height="113"/>
+        <image name="ImageGradient" width="738" height="185"/>
         <image name="like" width="29" height="29"/>
         <image name="noImage" width="800" height="511"/>
         <image name="stopwatch" width="29" height="29"/>

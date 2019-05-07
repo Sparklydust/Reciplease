@@ -16,12 +16,15 @@ class SearchTableVC: UIViewController, ShowsAlert {
   @IBAction func unwindToSearch(segue:UIStoryboardSegue) { }
   
   var recipeID = ""
-  var allRecipes: AllRecipesRoot?
   var customCell = CustomRecipeCell()
   var recipeMaster: RecipeMaster?
   
+  var allRecipes: AllRecipesRoot?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    title = "Reciplease"
     searchTableView.delegate = self
     searchTableView.dataSource = self
     
@@ -102,13 +105,14 @@ extension SearchTableVC {
     cell.recipeName.text = match.name
     cell.recipeInfo.text = match.ingredients?.joined(separator: ", ")
     cell.likeLabel.text = "\(match.rating ?? 0)/5"
-    cell.timerLabel.text = "\(match.cookingTime ?? 0 / 60)m"
+    cell.timerLabel.text = "\((match.cookingTime ?? 0) / 60)m"
   }
   
-  // Method to display the recipe image
+  // Method to display the recipe image in HD format
   func setRecipeImage(in recipeImage: UIImageView, from allRecipes: AllRecipesRoot?, at indexPath: IndexPath) {
-    if let image = allRecipes?.matches[indexPath.row].image?[0] {
-      recipeImage.downloaded(from: image)
+    if let image = allRecipes?.matches[indexPath.row].image?[0].absoluteString {
+      let HDimage = image.replacingOccurrences(of: "=s90", with: "=s360")
+      recipeImage.downloaded(from: HDimage)
     }
     else {
       recipeImage.image = UIImage(named: "noImage")
