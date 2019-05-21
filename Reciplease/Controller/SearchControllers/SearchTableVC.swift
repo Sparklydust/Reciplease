@@ -11,29 +11,29 @@ import UIKit
 class SearchTableVC: UIViewController, ShowsAlert {
   
   @IBOutlet weak var searchTableView: UITableView!
-  
+
   // Unwind action from StepByStepVC
   @IBAction func unwindToSearch(segue:UIStoryboardSegue) { }
-  
+
   var recipeID = ""
   var customCell = CustomRecipeCell()
   var recipeMaster: RecipeMaster?
-  
+
   var allRecipes: AllRecipesRoot?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     title = "Reciplease"
     searchTableView.delegate = self
     searchTableView.dataSource = self
-    
+
     // Register the custom cell
     searchTableView.register(
       UINib(nibName: "CustomRecipeCell", bundle: nil),
       forCellReuseIdentifier: "customRecipeCell")
   }
-  
+
   // To perform a table view animation
   override func viewWillAppear(_ animated: Bool) {
     searchTableView.reloadData(
@@ -58,24 +58,24 @@ extension SearchTableVC: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return ((allRecipes?.matches.count)!)
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: "customRecipeCell", for: indexPath) as! CustomRecipeCell
-    
+
     getAllRecipesToBeDisplayed(
       into: cell, from: allRecipes, at: indexPath)
-    
+
     return cell
   }
-  
+
   // Action for when the cell is cliked
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let indexOfCell = indexPath.row
     let recipe = allRecipes?.matches[indexOfCell]
     let cell = tableView.cellForRow(at: indexPath)
     let customCell = cell as? CustomRecipeCell
-    
+
     recipeID = (recipe?.id)!
     if recipeID.isEmpty {
       showsAlert(
@@ -107,7 +107,7 @@ extension SearchTableVC {
     cell.likeLabel.text = "\(match.rating ?? 0)/5"
     cell.timerLabel.text = "\((match.cookingTime ?? 0) / 60)m"
   }
-  
+
   // Method to display the recipe image in HD format
   func setRecipeImage(in recipeImage: UIImageView, from allRecipes: AllRecipesRoot?, at indexPath: IndexPath) {
     if let image = allRecipes?.matches[indexPath.row].image?[0].absoluteString {

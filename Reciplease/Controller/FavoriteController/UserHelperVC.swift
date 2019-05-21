@@ -11,12 +11,12 @@ import UIKit
 class UserHelperVC: UIViewController {
 
   @IBOutlet weak var helperMessageLabel: UILabel!
-  
+
   override func viewDidLoad() {
         super.viewDidLoad()
       setHelperMessage()
     }
-  
+
   func setHelperMessage() {
     helperMessageLabel.text = """
     You don't have any saved recipe.

@@ -10,7 +10,7 @@ import UIKit
 import TableViewReloadAnimation
 
 class AddIngredientsVC: UIViewController, ShowsAlert {
-  
+
   @IBAction func unwindToAddIngredientsVC(segue:UIStoryboardSegue) { }
 
   @IBOutlet weak var ingredientsTableView: UITableView!

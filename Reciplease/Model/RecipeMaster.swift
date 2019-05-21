@@ -20,9 +20,9 @@ struct RecipeMaster {
   var fat: Double?
   var fiber: Double?
   var protein: Double?
-  
+
   init() { }
-  
+
   init(name: String, image: URL, ingredients: String,
        timer: String, rating: String, webUrl: URL) {
     self.name = name
@@ -32,7 +32,7 @@ struct RecipeMaster {
     self.rating = rating
     self.webUrl = webUrl
   }
-  
+
   init(name: String, image: URL, ingredients: String, timer: String, rating: String,
        webUrl: URL, calories: Double, fat: Double, fiber: Double, protein: Double) {
     self.name = name
