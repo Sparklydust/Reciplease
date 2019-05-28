@@ -22,19 +22,17 @@ class ShowIngredientsVC: UIViewController, ShowsAlert {
   var isFavorited = false
   var recipeMaster = RecipeMaster()
   
-  var coreDataStack = CoreDataStack(modelName: RecipeService.modelName)
-  
   var recipeService: RecipeService
 
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     self.recipeService = RecipeService(
-      managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
+      managedObjectContext: CoreDataStack.shared.mainContext, coreDataStack: CoreDataStack.shared)
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
   
   required init?(coder aDecoder: NSCoder) {
     self.recipeService = RecipeService(
-      managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
+      managedObjectContext: CoreDataStack.shared.mainContext, coreDataStack: CoreDataStack.shared)
     super.init(coder: aDecoder)
   }
   

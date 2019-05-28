@@ -25,6 +25,7 @@
 		2A5EED98225A6CCD005BF792 /* CustomFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5EED96225A6CCD005BF792 /* CustomFavoriteCell.swift */; };
 		2A6620F622830892004D0569 /* AlamofireNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6620F522830892004D0569 /* AlamofireNetworking.swift */; };
 		2A797D16226A88930046DF6A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A797D15226A88930046DF6A /* Recipe.swift */; };
+		2A90C4AA229D5F210002982D /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90C4A9229D5F210002982D /* FakeResponseData.swift */; };
 		2A93CB25228D92F200ADC10C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93CB24228D92F200ADC10C /* CoreDataStack.swift */; };
 		2A93CB27228D932200ADC10C /* FakeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93CB26228D932200ADC10C /* FakeCoreDataStack.swift */; };
 		2A93CB29228D942600ADC10C /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93CB28228D942600ADC10C /* RecipeService.swift */; };
@@ -82,6 +83,7 @@
 		2A5EED96225A6CCD005BF792 /* CustomFavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFavoriteCell.swift; sourceTree = "<group>"; };
 		2A6620F522830892004D0569 /* AlamofireNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworking.swift; sourceTree = "<group>"; };
 		2A797D15226A88930046DF6A /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		2A90C4A9229D5F210002982D /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		2A93CB24228D92F200ADC10C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2A93CB26228D932200ADC10C /* FakeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCoreDataStack.swift; sourceTree = "<group>"; };
 		2A93CB28228D942600ADC10C /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
@@ -164,9 +166,9 @@
 		2A594A412252308B005E1715 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A594A442252308B005E1715 /* Info.plist */,
-				2A8954812273350100167764 /* Networking */,
-				2A8954822273353F00167764 /* Services */,
+				2A59F3212297E39300F0A4C5 /* Cases */,
+				2A59F3222297E40B00F0A4C5 /* Mocks */,
+				2A59F3272297EB0C00F0A4C5 /* Supporting Files */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -245,12 +247,38 @@
 			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
-		2A8954812273350100167764 /* Networking */ = {
+		2A59F3212297E39300F0A4C5 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				2A8954812273350100167764 /* Networking */,
+				2A8954822273353F00167764 /* Services */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		2A59F3222297E40B00F0A4C5 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				2AF164E92280556800CB759D /* FakeNetworkRequest.swift */,
-				2AC5A3092271F63A00D4B37D /* AllRecipesTests */,
-				2AC5A30A2271F65200D4B37D /* OneRecipeTests */,
+				2A90C4A9229D5F210002982D /* FakeResponseData.swift */,
+				2A93CB26228D932200ADC10C /* FakeCoreDataStack.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2A59F3272297EB0C00F0A4C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A594A442252308B005E1715 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A8954812273350100167764 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2AC5A3092271F63A00D4B37D /* AllRecipes */,
+				2AC5A30A2271F65200D4B37D /* OneRecipe */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -258,7 +286,6 @@
 		2A8954822273353F00167764 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2A93CB26228D932200ADC10C /* FakeCoreDataStack.swift */,
 				2A93CB2C228D9A6600ADC10C /* RecipeServiceTests.swift */,
 			);
 			path = Services;
@@ -287,22 +314,22 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		2AC5A3092271F63A00D4B37D /* AllRecipesTests */ = {
+		2AC5A3092271F63A00D4B37D /* AllRecipes */ = {
 			isa = PBXGroup;
 			children = (
 				2AC5A30B2271F6A900D4B37D /* GetAllRecipesTestCase.swift */,
 				2AC5A30D2271F82200D4B37D /* AllRecipes.json */,
 			);
-			path = AllRecipesTests;
+			path = AllRecipes;
 			sourceTree = "<group>";
 		};
-		2AC5A30A2271F65200D4B37D /* OneRecipeTests */ = {
+		2AC5A30A2271F65200D4B37D /* OneRecipe */ = {
 			isa = PBXGroup;
 			children = (
 				2AC5A30F2271FF9700D4B37D /* GetOneRecipeTestCase.swift */,
 				2AC5A3112271FFA900D4B37D /* OneRecipe.json */,
 			);
-			path = OneRecipeTests;
+			path = OneRecipe;
 			sourceTree = "<group>";
 		};
 		2AD31005227DB6C600798F0B /* Extensions */ = {
@@ -553,6 +580,7 @@
 				2AC5A30C2271F6A900D4B37D /* GetAllRecipesTestCase.swift in Sources */,
 				2A93CB27228D932200ADC10C /* FakeCoreDataStack.swift in Sources */,
 				2A93CB2D228D9A6600ADC10C /* RecipeServiceTests.swift in Sources */,
+				2A90C4AA229D5F210002982D /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +778,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8UNJX8SHV;
-				INFOPLIST_FILE = RecipleaseTests/Info.plist;
+				INFOPLIST_FILE = "RecipleaseTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -772,7 +800,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8UNJX8SHV;
-				INFOPLIST_FILE = RecipleaseTests/Info.plist;
+				INFOPLIST_FILE = "RecipleaseTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

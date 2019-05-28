@@ -41,3 +41,15 @@ extension ShowsAlert where Self: UIViewController {
     present(noEntryAlert, animated: true, completion: nil)
   }
 }
+
+extension UIViewController {
+  func alert(title: String, message: String) {
+    let noEntryAlert = UIAlertController(
+      title: title,
+      message: message,
+      preferredStyle: .alert)
+    noEntryAlert.addAction(UIAlertAction(
+      title: "OK", style: .cancel, handler: nil))
+    present(noEntryAlert, animated: true, completion: nil)
+  }
+}

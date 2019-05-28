@@ -21,7 +21,8 @@ struct AlamofireNetworking: NetworkRequest {
   }
 
   func request<Model: Codable>(_ url: URL, callback: @escaping(Model?, Swift.Error?) -> Void) {
-    Alamofire.request(url).responseData { (response) in
+    Alamofire.request(url).responseData {
+      (response) in
       DispatchQueue.main.async {
         guard response.result.isSuccess else {
           return callback(nil, Error.requestFailed)

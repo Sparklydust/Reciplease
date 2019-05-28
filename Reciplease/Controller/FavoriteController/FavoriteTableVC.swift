@@ -21,21 +21,21 @@ class FavoriteTableVC: UITableViewController, ShowsAlert {
   let demoCell = CustomFavoriteCell()
   var recipeMaster: RecipeMaster?
   var index: IndexPath?
-  
-  var coreDataStack = CoreDataStack(modelName: RecipeService.modelName)
-  
+
   var recipeService: RecipeService
-  
+
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    self.recipeService = RecipeService(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
+    self.recipeService = RecipeService(
+      managedObjectContext: CoreDataStack.shared.mainContext, coreDataStack: CoreDataStack.shared)
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
-    self.recipeService = RecipeService(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
+    self.recipeService = RecipeService(
+      managedObjectContext: CoreDataStack.shared.mainContext, coreDataStack: CoreDataStack.shared)
     super.init(coder: aDecoder)
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -75,7 +75,7 @@ extension FavoriteTableVC {
       return
     }
     cell.backgroundColor = .clear
-
+    
     if cellHeights[indexPath.row] == Const.closeCellHeight {
       cell.unfold(false, animated: false, completion: nil)
     } else {
@@ -166,9 +166,10 @@ extension FavoriteTableVC {
       title: "Delete this recipe?",
       message: "You are about to remove this item from favorite!") {
         (true) in
-        self.coreDataStack.mainContext.delete(self.recipeService.fetchAllRecipes()[indexPath.row])
+        CoreDataStack.shared.mainContext.delete(
+          self.recipeService.fetchAllRecipes()[indexPath.row])
         do {
-          try self.coreDataStack.mainContext.save()
+          try CoreDataStack.shared.mainContext.save()
         }
         catch {
           self.showsAlert(

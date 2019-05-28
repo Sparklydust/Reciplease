@@ -11,7 +11,7 @@ import Alamofire
 
 struct APIsRuler {
 
-  var networkRequest = AlamofireNetworking()
+  var networkRequest: NetworkRequest = AlamofireNetworking()
 
   static var shared = APIsRuler()
   private init() {}
@@ -33,7 +33,12 @@ extension APIsRuler {
 
     networkRequest.request(searchURL) {
       (model: AllRecipesRoot?, error: Error?) in
-      callback(true, model)
+      if error != nil {
+        callback(false, nil)
+      }
+      else {
+        callback(true, model)
+      }
     }
   }
 }
@@ -44,10 +49,15 @@ extension APIsRuler {
     let searchURL = URL(
       string: "https://api.yummly.com/v1/api/recipe/\(recipieID)?"
         + APIsRuler.urlAPIParameter)!
-    
+
     networkRequest.request(searchURL) {
       (model: OneRecipeRoot?, error: Error?) in
-      callback(true, model)
+      if error != nil {
+        callback(false, nil)
+      }
+      else {
+        callback(true, model)
+      }
     }
   }
 }

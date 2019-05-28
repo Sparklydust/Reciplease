@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchTableVC: UIViewController, ShowsAlert {
-  
+
   @IBOutlet weak var searchTableView: UITableView!
 
   // Unwind action from StepByStepVC

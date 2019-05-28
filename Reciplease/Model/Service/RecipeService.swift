@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 
 final class RecipeService {
-  
+
   // MARK: Properties
   let managedObjectContext: NSManagedObjectContext
   let coreDataStack: CoreDataStack
-  
+
   static let modelName = "Reciplease"
-  
+
   // MARK: Initializers
   public init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
     self.managedObjectContext = managedObjectContext
@@ -31,9 +31,9 @@ extension RecipeService {
                  rating: String, image: URL,
                  calories: Double, fat: Double,
                  fiber: Double, protein: Double) -> Recipe? {
-    
+
     let recipe = Recipe(context: managedObjectContext)
-    
+
     recipe.name = name
     recipe.ingredients = ingredients
     recipe.recipeSource = webURL
@@ -44,9 +44,9 @@ extension RecipeService {
     recipe.fat = fat
     recipe.fiber = fiber
     recipe.protein = protein
-    
+
     coreDataStack.saveContext(managedObjectContext)
-    
+
     return recipe
   }
 }

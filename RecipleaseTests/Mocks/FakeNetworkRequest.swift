@@ -1,5 +1,5 @@
 //
-//  MockURLProtocol.swift
+//  FakeNetworkRequest.swift
 //  RecipleaseTests
 //
 //  Created by Roland Lariotte on 06/05/2019.
@@ -16,10 +16,10 @@ struct FakeNetworkRequest: NetworkRequest {
     case noData
     case requestFailed
   }
-  
+
   var data: Data?
   var error: Error?
-  
+
   func request<Model: Codable>(_ url: URL, callback: @escaping (Model?, Swift.Error?) -> Void) {
     if let error = error {
       return callback(nil, error)

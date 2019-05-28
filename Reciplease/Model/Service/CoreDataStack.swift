@@ -10,17 +10,18 @@ import Foundation
 import CoreData
 
 open class CoreDataStack {
-  
+  static var shared = CoreDataStack(modelName: RecipeService.modelName)
+
   let modelName: String
-  
+
   public init(modelName: String) {
     self.modelName = modelName
   }
-  
+
   public lazy var mainContext: NSManagedObjectContext = {
     return self.storeContainer.viewContext
   }()
-  
+
   public lazy var storeContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: self.modelName)
     container.loadPersistentStores { (storeDescription, error) in
@@ -30,15 +31,11 @@ open class CoreDataStack {
     }
     return container
   }()
-  
+
   public func newDerivedContext() -> NSManagedObjectContext {
     let context = storeContainer.newBackgroundContext()
     return context
   }
-  
-//  public func saveContext() {
-//    saveContext(mainContext)
-//  }
 
   public func saveContext(_ context: NSManagedObjectContext) {
     if context != mainContext {
@@ -54,7 +51,7 @@ open class CoreDataStack {
       }
     }
   }
-  
+
   public func saveDerivedContext(_ context: NSManagedObjectContext) {
     context.perform {
       do {
