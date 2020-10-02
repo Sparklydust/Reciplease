@@ -1,4 +1,4 @@
-<img src="https://github.com/Ramotion/folding-cell/blob/master/header.png">
+<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell"><img src="https://github.com/Ramotion/folding-cell/blob/master/header.png"></a>
 
 <a href="https://github.com/Ramotion/folding-cell">
 <img align="left" src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="480" height="360" /></a>
@@ -13,13 +13,12 @@ ___
 
 
 <p><h6>We specialize in the designing and coding of custom UI for Mobile Apps and Websites.</h6>
-<a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
+<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
 </p>
 <p><h6>Stay tuned for the latest updates:</h6>
 <a href="https://goo.gl/rPFpid" >
 <img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a></p>
-<h6><a href="https://store.ramotion.com/product/iphone-x-clay-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell#demo">Get Free Mockup For your project →</a></h6>
 
 </br>
 
@@ -29,14 +28,14 @@ ___
 [![Travis](https://img.shields.io/travis/Ramotion/folding-cell.svg)](https://travis-ci.org/Ramotion/folding-cell)
 [![codebeat badge](https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc)](https://codebeat.co/projects/github-com-ramotion-folding-cell)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 4.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 [![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/folding-cell)](https://github.com/igrigorik/ga-beacon)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/Ramotion)
 
 ## Requirements
 
 - iOS 8.0+
-- Xcode 9.0+
+- Xcode 10.2
 
 ## Installation
 
@@ -50,6 +49,13 @@ or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle 
 ```
 github "Ramotion/folding-cell"
 ```
+or [Swift Package Manager](https://swift.org/package-manager/) by adding:
+```
+dependencies: [
+.package(url: "https://github.com/Ramotion/folding-cell.git", from: "5.0.2")
+]
+```
+to `Package.swift`
 
 or just drag and drop FoldingCell.swift file to your project
 
@@ -182,5 +188,5 @@ Try this UI component and more like this in our iOS app. Contact us if intereste
 <a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=folding-cell&mt=8" >
 <img src="https://github.com/ramotion/gliding-collection/raw/master/app_store@2x.png" width="117" height="34"></a>
 
-<a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
+<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>

@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.8.2)
-  - FoldingCell (5.0.0)
+  - Alamofire (4.9.1)
+  - FoldingCell (5.0.2)
   - TableViewReloadAnimation (0.0.5)
 
 DEPENDENCIES:
@@ -15,10 +15,10 @@ SPEC REPOS:
     - TableViewReloadAnimation
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  FoldingCell: 49f5e6a036241db1a177610b4d4137d961ddd40a
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FoldingCell: f92eb5fb9842319e7cd08c71533c98408b785099
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: eda9ffaa6700bb5e1e1db2f0d8d3b98c84b39697
+PODFILE CHECKSUM: bd15b75c4930804fe82d358d311e4250bb8a9189
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.4

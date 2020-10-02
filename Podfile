@@ -12,11 +12,6 @@ target 'Reciplease' do
     # Pods for testing
   end
 
-  target 'RecipleaseUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 pod 'Alamofire'
 pod 'TableViewReloadAnimation', '~> 0.0.5'
 pod 'FoldingCell'
